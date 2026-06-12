@@ -9,6 +9,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.media3.datasource.HttpDataSource
 import androidx.media3.datasource.okhttp.OkHttpDataSource
+import io.github.peerless2012.ass.media.type.AssRenderType
 import org.jellyfin.androidtv.R
 import org.jellyfin.androidtv.preference.UserPreferences
 import org.jellyfin.androidtv.preference.UserSettingPreferences
@@ -81,6 +82,10 @@ fun Scope.createPlaybackManager() = playbackManager(androidContext()) {
 		maxBufferDuration = bufferLength.maxBufferDuration,
 		bufferForPlaybackDuration = bufferLength.bufferForPlaybackDuration,
 		bufferForPlaybackAfterRebufferDuration = bufferLength.bufferForPlaybackAfterRebufferDuration,
+		assRendererType = userPreferences[UserPreferences.assRendererType].value,
+	    assGlyphSize = userPreferences[UserPreferences.assGlyphSize],
+	    assCacheSize = userPreferences[UserPreferences.assCacheSize],
+	    assMaxRenderPixels = userPreferences[UserPreferences.assMaxRenderPixels].value,
 	)
 	install(exoPlayerPlugin(get(), exoPlayerOptions))
 

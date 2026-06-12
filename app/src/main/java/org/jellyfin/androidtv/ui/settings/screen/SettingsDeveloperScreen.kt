@@ -7,15 +7,19 @@ import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil3.ImageLoader
 import org.jellyfin.androidtv.R
 import org.jellyfin.androidtv.preference.SystemPreferences
 import org.jellyfin.androidtv.preference.UserPreferences
+import org.jellyfin.androidtv.ui.base.Icon
 import org.jellyfin.androidtv.ui.base.Text
 import org.jellyfin.androidtv.ui.base.form.Checkbox
 import org.jellyfin.androidtv.ui.base.list.ListButton
 import org.jellyfin.androidtv.ui.base.list.ListSection
+import org.jellyfin.androidtv.ui.navigation.LocalRouter
+import org.jellyfin.androidtv.ui.settings.Routes
 import org.jellyfin.androidtv.ui.settings.compat.rememberPreference
 import org.jellyfin.androidtv.ui.settings.composable.SettingsColumn
 import org.jellyfin.androidtv.util.isTvDevice
@@ -23,6 +27,7 @@ import org.koin.compose.koinInject
 
 @Composable
 fun SettingsDeveloperScreen() {
+	val router = LocalRouter.current
 	val userPreferences = koinInject<UserPreferences>()
 	val systemPreferences = koinInject<SystemPreferences>()
 	val context = LocalContext.current
@@ -77,6 +82,15 @@ fun SettingsDeveloperScreen() {
 					imageLoader.diskCache?.clear()
 					imageCacheSize = imageLoader.diskCache?.size ?: 0L
 				}
+			)
+		}
+
+		item {
+			// Libass Options
+			ListButton(
+				leadingContent = { Icon(painterResource(R.drawable.ic_subtitles), contentDescription = null) },
+				headingContent = { Text(stringResource(R.string.pref_customization_subtitles_libassoptions)) },
+				onClick = { router.push(Routes.CUSTOMIZATION_SUBTITLES_ASS) },
 			)
 		}
 	}

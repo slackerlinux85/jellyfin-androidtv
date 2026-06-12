@@ -19,6 +19,9 @@ import org.jellyfin.androidtv.ui.settings.screen.customization.subtitle.Settings
 import org.jellyfin.androidtv.ui.settings.screen.customization.subtitle.SettingsSubtitlesBackgroundColorScreen
 import org.jellyfin.androidtv.ui.settings.screen.customization.subtitle.SettingsSubtitlesScreen
 import org.jellyfin.androidtv.ui.settings.screen.customization.subtitle.SettingsSubtitlesTextColorScreen
+import org.jellyfin.androidtv.ui.settings.screen.customization.subtitle.SettingsSubtitlesASSRendererScreen
+import org.jellyfin.androidtv.ui.settings.screen.customization.subtitle.SettingsSubtitlesASSMaxRenderPixelsScreen
+import org.jellyfin.androidtv.ui.settings.screen.customization.subtitle.SettingsSubtitlesAssOptionsScreen
 import org.jellyfin.androidtv.ui.settings.screen.home.SettingsHomeScreen
 import org.jellyfin.androidtv.ui.settings.screen.home.SettingsHomeSectionScreen
 import org.jellyfin.androidtv.ui.settings.screen.library.SettingsLibrariesDisplayGridScreen
@@ -75,6 +78,9 @@ object Routes {
 	const val CUSTOMIZATION_SUBTITLES_TEXT_COLOR = "/customization/subtitles/text-color"
 	const val CUSTOMIZATION_SUBTITLES_BACKGROUND_COLOR = "/customization/subtitles/background-color"
 	const val CUSTOMIZATION_SUBTITLES_EDGE_COLOR = "/customization/subtitles/edge-color"
+	const val CUSTOMIZATION_SUBTITLES_ASS = "/customization/subtitles/ass/"
+	const val CUSTOMIZATION_SUBTITLES_ASS_RENDERER = "/customization/subtitles/ass/renderer"
+	const val CUSTOMIZATION_SUBTITLES_ASS_MAX_RENDER_PIXELS = "/customization/subtitles/ass/maxrenderpixels"
 	const val LIBRARIES = "/libraries"
 	const val LIBRARIES_DISPLAY = "/libraries/display/{itemId}/{displayPreferencesId}"
 	const val LIBRARIES_DISPLAY_IMAGE_SIZE = "/libraries/display/{itemId}/{displayPreferencesId}/image-size"
@@ -105,6 +111,7 @@ object Routes {
 	const val PLAYBACK_HEVC_LEVEL = "/playback/codec/hevc-level"
 	const val TELEMETRY = "/telemetry"
 	const val DEVELOPER = "/developer"
+
 	const val ABOUT = "/about"
 	const val LICENSES = "/licenses"
 	const val LICENSE = "/license/{artifactId}"
@@ -172,6 +179,15 @@ val routes = mapOf<String, RouteComposable>(
 	},
 	Routes.CUSTOMIZATION_SUBTITLES_EDGE_COLOR to {
 		SettingsSubtitleTextStrokeColorScreen()
+	},
+	Routes.CUSTOMIZATION_SUBTITLES_ASS to {
+		SettingsSubtitlesAssOptionsScreen()
+	},
+	Routes.CUSTOMIZATION_SUBTITLES_ASS_RENDERER to {
+		SettingsSubtitlesASSRendererScreen()
+	},
+	Routes.CUSTOMIZATION_SUBTITLES_ASS_MAX_RENDER_PIXELS to {
+		SettingsSubtitlesASSMaxRenderPixelsScreen()
 	},
 	Routes.LIBRARIES to {
 		SettingsLibrariesScreen()

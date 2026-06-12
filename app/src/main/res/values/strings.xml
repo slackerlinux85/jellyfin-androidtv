@@ -571,6 +571,7 @@
     <string name="pref_playback_next_up">Next up</string>
     <string name="pref_playback_media_segments">Media segments</string>
     <string name="pref_customization_subtitles">Subtitles</string>
+    <string name="pref_customization_subtitles_libassoptions">LibASS Advanced options</string>
     <string name="pref_playback_prerolls">Prerolls</string>
     <string name="pref_playback_inactivity_prompt">Inactivity prompt</string>
     <string name="pref_prerolls_enabled">Enable cinema mode</string>
@@ -616,6 +617,21 @@
     <string name="preference_enable_ass">Direct play ASS subtitles</string>
     <string name="preference_enable_pgs_description">Requires transcoding when disabled</string>
     <string name="preference_enable_ass_description">Experimental feature, may not work reliably</string>
+    <string name="preference_ass_renderer">ASS Renderer</string>
+    <string name="preference_ass_renderer_description">renderer to use in libASS</string>
+    <string name="ass_renderer_overlay_canvas">Canvas</string>
+    <string name="ass_renderer_overlay_open_gl">OpenGL</string>
+    <string name="preference_ass_glyphsize">ASS Glyph Size</string>
+    <string name="preference_ass_glyphsize_description">Maximum number of glyph cache entries for ASS subtitles</string>
+    <string name="preference_ass_cachesize">ASS Cache Size</string>
+    <string name="preference_ass_cachesize_description">Maximum bitmap cache size in MB for ASS subtitles</string>
+    <string name="preference_ass_maxrenderpixels">ASS max render pixels</string>
+    <string name="preference_ass_maxrenderpixels_description">Maximum pixel count for ASS subtitle rendering (0 = no limit)</string>
+    <string name="ass_maxrenderpixels_auto">No Limit</string>
+    <string name="ass_maxrenderpixels_high">High(1440p)</string>
+    <string name="ass_maxrenderpixels_standard">Standard(1080p)</string>
+    <string name="ass_maxrenderpixels_low">Low(720p)</string>
+
     <string name="auto">Auto</string>
     <plurals name="seconds">
         <item quantity="one">%1$s second</item>

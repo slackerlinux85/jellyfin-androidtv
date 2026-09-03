@@ -25,6 +25,7 @@ import androidx.media3.extractor.DefaultExtractorsFactory
 import androidx.media3.extractor.ts.TsExtractor
 import androidx.media3.ui.SubtitleView
 import io.github.peerless2012.ass.media.AssHandler
+import io.github.peerless2012.ass.media.AssHandlerConfig
 import io.github.peerless2012.ass.media.factory.AssRenderersFactory
 import io.github.peerless2012.ass.media.kt.withAssMkvSupport
 import io.github.peerless2012.ass.media.parser.AssSubtitleParserFactory
@@ -69,7 +70,7 @@ class ExoPlayerBackend(
 	private var lastKnownDuration: Duration? = null
 
 	private val assHandler by lazy {
-		AssHandler(AssRenderType.OVERLAY_OPEN_GL)
+		AssHandler(exoPlayerOptions.assRendererType ?: AssRenderType.OVERLAY_OPEN_GL, AssHandlerConfig(glyphSize = exoPlayerOptions.assGlyphSize ?: 10000, cacheSize = exoPlayerOptions.assCacheSize ?: 128, maxRenderPixels = exoPlayerOptions.assMaxRenderPixels ?: 0))
 	}
 
 	private val exoPlayer by lazy {

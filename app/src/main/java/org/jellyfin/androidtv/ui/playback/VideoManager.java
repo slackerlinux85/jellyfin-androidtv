@@ -99,7 +99,12 @@ public class VideoManager {
         nightModeEnabled = userPreferences.get(UserPreferences.Companion.getAudioNightMode());
 
         boolean assDirectPlay = userPreferences.get(UserPreferences.Companion.getAssDirectPlay());
-        AssHandler assHandler = assDirectPlay ? new AssHandler(AssRenderType.OVERLAY_OPEN_GL, new AssHandlerConfig()) : null;
+        AssRenderType assRenderer = userPreferences.get(UserPreferences.Companion.getAssRendererType()).getValue();
+        int assGlyphSize = userPreferences.get(UserPreferences.Companion.getAssGlyphSize());
+        int assCacheSize = userPreferences.get(UserPreferences.Companion.getAssCacheSize());
+        int assMaxRenderPixels = userPreferences.get(UserPreferences.Companion.getAssMaxRenderPixels()).getValue();
+
+        AssHandler assHandler = assDirectPlay ? new AssHandler(assRenderer, new AssHandlerConfig(assGlyphSize, assCacheSize, assMaxRenderPixels)) : null;
 
         mExoPlayer = configureExoplayerBuilder(activity, assHandler).build();
 

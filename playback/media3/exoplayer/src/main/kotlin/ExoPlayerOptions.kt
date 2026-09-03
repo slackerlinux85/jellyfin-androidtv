@@ -2,6 +2,7 @@ package org.jellyfin.playback.media3.exoplayer
 
 import androidx.media3.datasource.DataSource
 import androidx.media3.datasource.DefaultHttpDataSource
+import io.github.peerless2012.ass.media.type.AssRenderType
 import kotlin.time.Duration
 
 data class ExoPlayerOptions(
@@ -13,4 +14,8 @@ data class ExoPlayerOptions(
 	val maxBufferDuration: Duration? = null,
 	val bufferForPlaybackDuration: Duration? = null,
 	val bufferForPlaybackAfterRebufferDuration: Duration? = null,
+	val assRendererType: AssRenderType? = AssRenderType.OVERLAY_OPEN_GL,
+	val assGlyphSize: Int? = 10000,
+	val assCacheSize: Int? = 128,
+	val assMaxRenderPixels: Int? = 0,
 )

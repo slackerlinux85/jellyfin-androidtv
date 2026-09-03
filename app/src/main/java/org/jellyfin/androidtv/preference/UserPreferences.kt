@@ -2,7 +2,10 @@ package org.jellyfin.androidtv.preference
 
 import android.content.Context
 import androidx.preference.PreferenceManager
+import io.github.peerless2012.ass.media.type.AssRenderType
 import org.jellyfin.androidtv.preference.UserPreferences.Companion.screensaverInAppEnabled
+import org.jellyfin.androidtv.preference.constant.ASSMaxRenderPixels
+import org.jellyfin.androidtv.preference.constant.ASSRenderer
 import org.jellyfin.androidtv.preference.constant.AVCLevel
 import org.jellyfin.androidtv.preference.constant.AppTheme
 import org.jellyfin.androidtv.preference.constant.AudioBehavior
@@ -244,6 +247,26 @@ class UserPreferences(context: Context) : SharedPreferenceStore(
 		 * Enable libass.
 		 */
 		var assDirectPlay = booleanPreference("libass_enabled", false)
+
+		/**
+		 * libass Renderer.
+		 */
+		var assRendererType = enumPreference("libass_rendertype", ASSRenderer.OVERLAY_OPEN_GL)
+
+		/**
+		 * libass glyphSize.
+		 */
+		var assGlyphSize = intPreference("libass_glyphsize", 10000)
+
+		/**
+		 * libass cacheSize.
+		 */
+		var assCacheSize = intPreference("libass_cachesize", 128)
+
+		/**
+		 * libass maxRenderPixels.
+		 */
+		var assMaxRenderPixels = enumPreference("libass_maxrenderpixels", ASSMaxRenderPixels.AUTO)
 
 		/**
 		 * Always burn in subtitles when transcoding.
